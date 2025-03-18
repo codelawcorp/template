@@ -29,4 +29,4 @@ dependencies:
   - name: helm-generic-chart
     # alias:  # ! Specify alias /  becomes a subchart's .Chart.Name
     version: ">=1.0.0" # Pin version to a git tag
-    repository: oci://528757816911.dkr.ecr.ca-central-1.amazonaws.com
+    repository: oci://339712874042.dkr.ecr.ca-central-1.amazonaws.com
