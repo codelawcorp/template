@@ -13,6 +13,13 @@ Why you used the technologies you used?
 ## Getting started 🚀
 
 ##  Development 🐙
+
+### Configuring
+
+- There are TODO comments in the code.
+- Install git hooks. Run this command `git config core.hooksPath .githooks`.
+- [Configure GPG keys if required](doc/GPG-KEYS.md)
+
 Setup GitHub authentication
 
 ```bash
@@ -21,12 +28,6 @@ gh auth login
 gh auth setup-git
 git clone <this repo>
 ```
-
-### Configuring
-
-- There are TODO comments in the code.
-- Install git hooks. Run this command `git config core.hooksPath .githooks`.
-- [Configure GPG keys if required](doc/GPG-KEYS.md)
 
 ### Building 🧱
 
@@ -57,6 +58,7 @@ When a new commit is pushed to the default branch (`prod`), GHA runs an npm scri
 
 - [Choose License](https://choosealicense.com/)
 - Use [this tool](https://githubnext.com/projects/repo-visualization/) to explore the project if it is large
+- Use autoclosing issues if you work with Github issues/projects [doc](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword). In 2023 there is no out-of-the-box solution for automatically opening issues with a commit message.
 - [.gitignore file generator](https://www.toptal.com/developers/gitignore/)
 - [Markdown table generator](https://www.tablesgenerator.com/markdown_tables)
 - [Kubernetes Manifests Generator](https://k8syaml.com/)
