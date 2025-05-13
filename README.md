@@ -64,4 +64,5 @@ When a new commit is pushed to the default branch (`prod`), GHA runs an npm scri
 - [Kubernetes Manifests Generator](https://k8syaml.com/)
 - [Generate banner online](https://manytools.org/hacker-tools/ascii-banner/)
 - [Jam - UI bug reports](https://jam.dev/)
+- [CLI tools catalog Terminal Trove](https://terminaltrove.com/)
   Enjoy Coding ❤
