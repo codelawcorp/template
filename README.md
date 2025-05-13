@@ -60,6 +60,7 @@ When a new commit is pushed to the default branch (`prod`), GHA runs an npm scri
 - Use [this tool](https://githubnext.com/projects/repo-visualization/) to explore the project if it is large
 - Use autoclosing issues if you work with Github issues/projects [doc](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword). In 2023 there is no out-of-the-box solution for automatically opening issues with a commit message.
 - [.gitignore file generator](https://www.toptal.com/developers/gitignore/)
+- [Useful git aliases](https://medium.com/@lordmoma/so-you-think-you-know-git-673f9c4b0792)
 - [Markdown table generator](https://www.tablesgenerator.com/markdown_tables)
 - [Kubernetes Manifests Generator](https://k8syaml.com/)
 - [Generate banner online](https://manytools.org/hacker-tools/ascii-banner/)
