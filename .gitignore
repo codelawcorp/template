@@ -139,6 +139,7 @@ __pycache__/
 *.tfstate
 .terraform*/
 .terraform*
+!.terraform-version
 .terraformrc
 *.tfstate
 *.tfstate.backup
