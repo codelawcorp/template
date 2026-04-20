@@ -149,7 +149,7 @@ __pycache__/
 *secrets.auto.tfvars
 
 # Secrets
-.*env
+*.env
 
 .DS_Store
 
