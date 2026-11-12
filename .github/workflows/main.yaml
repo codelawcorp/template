@@ -33,14 +33,6 @@ jobs:
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
           GITLEAKS_VERSION: 8.24.3
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: ${{ vars.AWS_REGION }} # Set via GitHub Secrets and variables on an org level
-          role-to-assume: ${{ vars.AWS_ECR_ROLE_ARN }}
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
       - uses: azure/setup-helm@v4.2.0
         with:
           version: "latest" # default is latest (stable)
@@ -138,7 +130,7 @@ jobs:
 #       uses: aws-actions/configure-aws-credentials@v4
 #       with:
 #         aws-region: ${{ vars.AWS_REGION }} # Set via GitHub Secrets and variables on a org level
-#         role-to-assume:  ${{ vars.AWS_ECR_ROLE_ARN }}
+#         role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/${{ vars.IAM_GHA_OIDC_ROLE_NAME }}
 
 #     - name: Login to Amazon ECR
 #       id: login-ecr
