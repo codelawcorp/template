@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# .githooks/pre-commit.local: this repository's own commit check. The shared pre-commit (magzim21/utilities
+# git-hooks/pre-commit, README "Shared commit hooks"), which .githooks/pre-commit calls, runs it from the repository's
+# top folder after the branch name check and before gitleaks; its exit code stops the commit.
+set -e
+# Terraform of codelawcorp/template: every commit format-checks and validates terraform/. A project made from the
+# template without Terraform yet (the template itself) has no terraform/ folder: nothing to check.
+[ -d terraform ] || exit 0
+echo "Formatting tf files"
+terraform fmt -check -recursive || { terraform fmt -write=true -recursive  && echo "Files were not well-formatted. Formatted files. Aborting commit." && exit 1; } && echo "Files are well-formatted"
+
+# A fresh clone or worktree has no providers yet: init without the backend (no state read), as CI's validate does.
+[ -d terraform/.terraform ] || terraform -chdir=terraform init -backend=false -input=false >/dev/null
+terraform -chdir=terraform validate

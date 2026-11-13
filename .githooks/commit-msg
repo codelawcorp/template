@@ -1,18 +1,10 @@
 #!/bin/sh
-set -e
-# On exit, print a message if the hook failed (non-zero exit) and preserve the exit code
-trap 'ret=$?; if [ $ret -ne 0 ]; then echo "pre-commit hook failed (exit code $ret)"; fi; exit $ret' EXIT
-
-
-# export NODE_PATH=/opt/homebrew/lib/node_modules/ # make sure that this matches to your global node_modules path
-
-# Installing npm packages globally if not present
-(npm list -g @commitlint/config-conventional && echo "@commitlint/config-conventiona is already installed ") ||( npm install -g @commitlint/config-conventional && echo "Installed @commitlint/config-conventional ")
-(npm list -g @commitlint/cli && echo "@commitlint/config-conventiona is already installed ") ||( npm install -g @commitlint/cli && echo "Installed @commitlint/cli ")
-
-
-CONFIG_PATH="$(git rev-parse --show-toplevel)/.githooks/.commitlintrc.yml"
-npm list -g @commitlint/config-conventional || npm install -g @commitlint/config-conventional commitlint
-npx commitlint --config "$CONFIG_PATH" --edit "$1"
-
-
+# Stub of the shared commit message hook (magzim21/utilities, README "Shared commit hooks"; written by
+# git-hooks-install, the same bytes in every repository): it runs ~/scripts/git-hooks-commit-msg, which runs this
+# repository's own .githooks/commit-msg.local when there is one, then the commitlint rules of its commitlint config:
+# Conventional Commits, lines of at most 100 characters, no Co-Authored-By. Never git commit --no-verify.
+h=${GIT_HOOKS_COMMIT_MSG:-$HOME/scripts/git-hooks-commit-msg}
+[ -x "$h" ] && exec "$h" "$@"
+echo "commit-msg: COMMIT REFUSED: $h is missing, so the message cannot be checked. Release the shared hooks:" \
+     "cd ~/Developer/github/magzim21/utilities && ./utilities-release" >&2
+exit 1
